@@ -1,0 +1,171 @@
+.header {
+  height: 60px;
+  display: flex;
+  align-items: center;
+  background-color: #131921;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  padding: 5px 10px;
+}
+
+/* --- THE HOVER RECTANGLE EFFECT --- */
+.header__logo_container,
+.header__delivery,
+.header__option,
+.header__optionBasket {
+  border: 1px solid transparent; /* Prevents layout shifting */
+  padding: 4px 8px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.header__logo_container:hover,
+.header__delivery:hover,
+.header__option:hover,
+.header__optionBasket:hover {
+  border: 1px solid white; /* The white rectangle */
+  border-radius: 2px;
+}
+
+/* --- LOGO & DELIVERY --- */
+.header__logo {
+  width: 95px;
+  object-fit: contain;
+  margin-top: 15px;
+}
+
+.header__delivery {
+  flex-direction: row !important;
+  align-items: center;
+  color: white;
+  margin-left: 5px;
+}
+
+.header__locationIcon {
+  margin-top: 14px;
+  font-size: 20px;
+}
+
+/* --- SEARCH BAR --- */
+.header__search {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  border-radius: 4px;
+  overflow: hidden;
+  margin: 0 10px;
+  background-color: white;
+}
+
+.header__search:focus-within {
+  box-shadow: 0 0 0 2px #f08804; /* Orange glow like real Amazon */
+}
+
+.header__search_left {
+  background-color: #e6e6e6;
+  width: 52px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-right: 1px solid #bbb;
+  color: #555;
+  font-size: 12px;
+}
+
+.header__searchInput {
+  height: 40px;
+  /* padding: 10px; */
+  border: none;
+  width: 100%;
+  outline: none;
+}
+
+.header__searchIconContainer {
+  height: 40px;
+  width: 45px;
+  background-color: #febd69; /* Amazon Orange */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header__searchIcon { font-size: 22px; color: #333; }
+
+/* --- NAVIGATION & FLAG FIX --- */
+.header__nav { display: flex; justify-content: space-evenly; }
+
+.header__optionLineOne { color: white; font-size: 12px; }
+.header__optionLineTwo { color: white; font-size: 14px; font-weight: 800; }
+
+.header__option_lineTwo_container { display: flex; align-items: center; }
+
+.header__language { flex-direction: row !important; align-items: center; margin-top: 10px; }
+.header__language img { 
+  width: 22px !important; /* Forces the flag to stay small */
+  margin-right: 4px; 
+}
+
+.header__dropdown_arrow { color: lightgray; margin-top: 4px; }
+
+/* --- CART --- */
+.header__optionBasket { flex-direction: row !important; align-items: flex-end; }
+.header__cart_info { position: relative; display: flex; align-items: center; color: white; }
+.header__cartCount {
+  position: absolute;
+  top: -6px;
+  left: 14px;
+  color: #f08804; /* Orange count */
+  font-weight: 700;
+  font-size: 16px;
+}
+
+/* --- LOWER HEADER (Gray Bar) --- */
+.lower-header {
+  background-color: #232f3e; /* Amazon's dark gray */
+  height: 40px;
+  display: flex;
+  align-items: center;
+  color: white;
+  padding-left: 10px;
+  font-family: Arial, sans-serif;
+}
+
+.lower-header__list {
+  display: flex;
+  list-style: none; /* Removes bullet points */
+  margin: 0;
+  padding: 0;
+}
+
+/* Style for each individual link item */
+.lower-header__item {
+  display: flex;
+  align-items: center;
+  margin: 0 2px;
+  padding: 8px 10px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  /* Start with a transparent border so it doesn't jump on hover */
+  border: 1px solid transparent;
+}
+
+/* Hover effect for the white border rectangle */
+.lower-header__item:hover {
+  border: 1px solid white;
+  border-radius: 2px;
+}
+
+/* Specific style for the "All" menu item to make the text bold */
+.lower-header__menu {
+  font-weight: 700;
+}
+
+.lower-header__menu-icon {
+  margin-right: 5px;
+  font-size: 20px;
+}

@@ -1,0 +1,68 @@
+.category__container {
+  display: grid;
+  /* Creates exactly 4 equal columns */
+  grid-template-columns: repeat(4, 1fr); 
+  gap: 20px;
+  padding: 0 20px;
+  max-width: 1500px;
+  margin: -350px auto 0 auto; /* Negative margin to overlap the carousel */
+  position: relative;
+  z-index: 10;
+}
+
+/* Card Styling for more attractiveness */
+.category__card {
+  background-color: white;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 420px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Subtle shadow for depth */
+}
+
+.category__card_header h2 {
+  font-size: 21px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: #0F1111;
+}
+
+/* For cards with a single large image */
+.category__image_container {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+.category__image_container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Link Styling */
+.category__link a {
+  color: #007185;
+  font-size: 13px;
+  text-decoration: none;
+  font-weight: 500;
+  margin-top: 10px;
+  display: block;
+}
+
+.category__link a:hover {
+  text-decoration: underline;
+  color: #C7511F;
+}
+
+/* Responsive fix: Switch to 2 columns on tablets and 1 on phones */
+@media (max-width: 1200px) {
+  .category__container { grid-template-columns: repeat(2, 1fr); margin-top: -150px; }
+}
+@media (max-width: 768px) {
+  .category__container { grid-template-columns: 1fr; margin-top: 0; }
+}
