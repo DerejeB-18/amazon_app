@@ -1,16 +1,16 @@
 import React from 'react';
-import LayOut from '../../components/LayOut/LayOut';
-import Carousel from '../../components/Carousel/Carousel';
-import Category from '../../components/Category/Category';
-import Product from '../../components/Product/Product';
+// import LayOut from '../../LayOut/LayOut';
+import Carousel from '../../Carousel/Carousel';
+import Category from '../../Category/Category';
+import Product from '../../Product/Product';
 
 function Landing() {
   return (
-    <LayOut>
+    <>
         <Carousel />
         <Category />
         <Product />
-    </LayOut>
+    </>
   );
 }
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import classes from './Signup.module.css';
+import classes from './Signup.modules.css';
 
 function Signup() {
   return (

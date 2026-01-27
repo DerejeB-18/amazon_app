@@ -1,32 +1,32 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-// These paths match your exact folder structure in the screenshots:
-import Landing from './Pages/Landing/Landing';
-import Signup from './Pages/Auth/Signup';
-import Payment from './Pages/Payment/Payment';
-import Orders from './Pages/Orders/Orders';
-import Cart from './Pages/Cart/Cart';
-import Results from './Pages/Results/Results';
-import ProductDetail from './Pages/ProductDetail/ProductDetail';
+// Pages
+import Landing from "./components/Pages/Landing/Landing";
+import Signup from "./components/Pages/Auth/Signup";
+import Payment from "./components/Pages/Payment/Payment";
+import Orders from "./components/Pages/Orders/Orders";
+import Cart from "./components/Pages/Cart/Cart";
+import Results from "./components/Pages/Results/Results";
+import ProductDetail from "./components/Pages/ProductDetail/ProductDetail";
 
-// components - Matching your lowercase 'c' folder
-import LayOut from './components/LayOut/LayOut';
+// Layout
+import LayOut from "./components/LayOut/LayOut";
 
-function Routing() {
-return (
-    <Router>
-    <Routes>
-        <Route path="/" element={<LayOut><Landing /></LayOut>} />
-        <Route path="/auth" element={<Signup />} />
-        <Route path="/payments" element={<LayOut><Payment /></LayOut>} />
-        <Route path="/orders" element={<LayOut><Orders /></LayOut>} />
-        <Route path="/cart" element={<LayOut><Cart /></LayOut>} />
-        <Route path="/category/:categoryName" element={<LayOut><Results /></LayOut>} />
-        <Route path="/products/:productId" element={<LayOut><ProductDetail /></LayOut>} />
-    </Routes>
-    </Router>
-);
-}
+const Router = () => {
+  return (
+      <Routes>
+        <Route path="/" element={<LayOut />}>
+          <Route index element={<Landing />} />
+          <Route path="signup" element={<Signup />} />
+          <Route path="payment" element={<Payment />} />
+          <Route path="orders" element={<Orders />} />
+          <Route path="cart" element={<Cart />} />
+          <Route path="results" element={<Results />} />
+          <Route path="product/:id" element={<ProductDetail />} />
+        </Route>
+      </Routes>
+  );
+};
 
-export default Routing;
+export default Router;
