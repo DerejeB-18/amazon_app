@@ -5,6 +5,7 @@ import { SlLocationPin } from "react-icons/sl";
 import { BiCart } from "react-icons/bi";
 import { IoMdArrowDropdown } from "react-icons/io";
 import LowerHeader from './lowerHeader';
+import { Link } from 'react-router-dom'; // Import Link
 
 function Header() {
   return (
