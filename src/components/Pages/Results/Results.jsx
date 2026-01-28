@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import { productUrl } from '../../../Api/endPoints'; 
 import ProductCard from '../../Product/ProductCard';
+import Loader from '../../Loader/Loader'; 
 import classes from './Results.module.css';
 
 function Results() {
@@ -18,10 +19,9 @@ function Results() {
       .then((res) => {
         setResults(res.data);
         setIsLoading(false);
-        console.log("Success:", res.data);
       })
       .catch((err) => {
-        console.log("Error:", err);
+        console.log(err);
         setIsLoading(false);
       });
   }, [categoryName]);
@@ -33,21 +33,17 @@ function Results() {
       <hr />
       
       {isLoading ? (
-        <div style={{ padding: "30px" }}>Loading products...</div>
+        <Loader /> 
       ) : (
         <div className={classes.products_container}>
           {results?.map((product) => (
             <ProductCard
               key={product.id}
-              /* CRITICAL FIX: Prop name must be renderData to match your ProductCard */
-              renderData={product} 
+              renderData={product}
+              renderAdd={true}
             />
           ))}
         </div>
-      )}
-
-      {!isLoading && results.length === 0 && (
-        <div style={{ padding: "30px" }}>No products found.</div>
       )}
     </section>
   );

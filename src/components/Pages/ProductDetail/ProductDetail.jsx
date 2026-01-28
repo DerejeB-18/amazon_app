@@ -3,23 +3,23 @@ import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import { productUrl } from '../../../Api/endPoints';
 import ProductCard from '../../Product/ProductCard';
+import Loader from '../../Loader/Loader';
 import classes from './ProductDetail.module.css';
 
 function ProductDetail() {
-  const { productId } = useParams(); // Destructure productId from URL
+  const { productId } = useParams();
   const [product, setProduct] = useState({});
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     setIsLoading(true);
-    // Fetch a single product by ID
     axios.get(`${productUrl}/products/${productId}`)
       .then((res) => {
         setProduct(res.data);
         setIsLoading(false);
       })
       .catch((err) => {
-        console.log("Error fetching product detail:", err);
+        console.log(err);
         setIsLoading(false);
       });
   }, [productId]);
@@ -27,15 +27,14 @@ function ProductDetail() {
   return (
     <section>
       {isLoading ? (
-        <div style={{ padding: "40px", textAlign: "center" }}>Loading product...</div>
+        <Loader />
       ) : (
         <div className={classes.detail_container}>
-          {/* Reuse ProductCard with specific props for detail view */}
           <ProductCard 
-            renderData={product}
-            flex={true}           // This will trigger horizontal layout
-            renderDesc={true}     // This will show the description
-            renderAdd={true}      // This shows the add to cart button
+            renderData={product} 
+            flex={true}           
+            renderDesc={true}     
+            renderAdd={true}      
           />
         </div>
       )}

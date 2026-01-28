@@ -1,0 +1,28 @@
+.products_container {
+  display: grid;
+  /* This creates 4 equal columns */
+  grid-template-columns: repeat(4, 1fr); 
+  gap: 20px;
+  padding: 20px;
+  max-width: 1500px;
+  margin: 0 auto;
+}
+
+/* Responsive: Change to 2 columns on tablets and 1 on phones */
+@media (max-width: 1200px) {
+  .products_container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .products_container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .products_container {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,8 @@
+.loader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* Adjust height so it centers in the middle of the results page */
+  height: 60vh; 
+  width: 100%;
+}
