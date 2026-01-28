@@ -1,30 +1,34 @@
-.carousel_container {
+/* --- Carousel Wrapper --- */
+.carousel-wrapper {
   position: relative;
-  z-index: -1; /* Keeps the banner behind the header and product grid */
-  margin-bottom: -150px; /* Pulls the product grid UP over the banner */
+  z-index: 1; /* Keeps banner below the header but above the background */
+  /* This creates the professional Amazon fade-to-bottom effect */
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 60%, rgba(0, 0, 0, 0));
+  -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 60%, rgba(0, 0, 0, 0));
+  
+  /* Pulls the product cards up onto the banner like the real site */
+  margin-bottom: -200px; 
 }
 
-.carousel_container img {
+/* --- Fixing the Header Overlap --- */
+/* Add this to the parent container of your Carousel (e.g., Home page or App.js) */
+.home-page {
+  /* This must equal the total height of your Header + LowerHeader */
+  margin-top: 100px; 
+}
+
+.carousel-wrapper img {
   width: 100%;
-  mask-image: linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0));
+  height: auto;
+  object-fit: cover;
 }
 
-/* The gradient that fades the image into the page background */
-.hero__gradient {
-  position: absolute;
-  width: 100%;
-  height: 250px;
-  bottom: 0;
-  background-image: linear-gradient(
-    to bottom,
-    rgba(234, 237, 237, 0), /* Transparent at top */
-    rgba(234, 237, 237, 1)  /* Match your body background color at bottom */
-  );
-  z-index: 10;
-}
-
-/* Optional: Custom styling for the arrows if you want them bigger */
+/* --- Styling Carousel Arrows (Optional) --- */
 .control-arrow {
   padding: 20px !important;
+  opacity: 0.8 !important;
+}
+
+.control-arrow:hover {
   opacity: 1 !important;
 }

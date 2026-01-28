@@ -1,9 +1,17 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import CurrencyFormat from '../CurrencyFormat/CurrencyFormat';
 import classes from './ProductCard.module.css';
+import { StateContext } from '../../context/StateProvider';
+import { Type } from '../../context/reducer'; // Import your types!
 
 function ProductCard({ renderData, flex, renderDesc, renderAdd }) {
+    // 1. CALL HOOKS AT THE VERY TOP (Always!)
+    // We destructure as an array [state, dispatch]
+    // const [, dispatch] = useContext(StateContext);
+    const { dispatch } = useContext(StateContext);
+
+    // 2. NOW you can do your conditional check
     if (!renderData) return null;
 
     const {
@@ -12,7 +20,7 @@ function ProductCard({ renderData, flex, renderDesc, renderAdd }) {
         image,
         price,
         rating,
-        description // Added to display in detail view
+        description
     } = renderData;
 
     const rate = rating?.rate || 0;
@@ -21,21 +29,31 @@ function ProductCard({ renderData, flex, renderDesc, renderAdd }) {
     const truncate = (str, n) =>
         str?.length > n ? str.substr(0, n - 1) + '...' : str;
 
+    const addToCartHandler = () => {
+        dispatch({
+            type: Type.ADD_TO_BASKET, // Using the constant is safer than the string 'ADD_TO_CART'
+            item: {
+                id,
+                title,
+                image,
+                price,
+                rating,
+                description
+            }
+        });
+    };
+
     return (
-        /* If 'flex' is true, it adds the .product_flexed class 
-           This is what changes the layout for the Detail page.
-        */
         <div className={`${classes.card_container} ${flex ? classes.product_flexed : ''}`}>
-            <Link to={`/product/${id}`} className={classes.card_link}>
+            {/* Using /products/ instead of /product/ to match common Amazon clone routing */}
+            <Link to={`/products/${id}`} className={classes.card_link}>
                 <div className={classes.image_wrapper}>
                     <img src={image} alt={title} />
                 </div>
 
                 <div className={classes.content_wrapper}>
-                    {/* On detail page (flex), we show the full title. In grid, we truncate. */}
                     <h3>{flex ? title : truncate(title, 50)}</h3>
 
-                    {/* Show description ONLY if renderDesc prop is passed as true */}
                     {renderDesc && (
                         <div className={classes.description_box}>
                             <p>{description}</p>
@@ -57,9 +75,8 @@ function ProductCard({ renderData, flex, renderDesc, renderAdd }) {
                 </div>
             </Link>
 
-            {/* Toggle 'Add to Cart' button visibility with renderAdd prop */}
             {renderAdd && (
-                <button className={classes.add_btn}>
+                <button className={classes.add_btn} onClick={addToCartHandler}>
                     Add to Cart
                 </button>
             )}
@@ -67,7 +84,6 @@ function ProductCard({ renderData, flex, renderDesc, renderAdd }) {
     );
 }
 
-// Default props so existing code on Landing/Results doesn't break
 ProductCard.defaultProps = {
     renderAdd: true,
     flex: false,

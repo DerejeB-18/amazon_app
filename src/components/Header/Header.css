@@ -1,171 +1,193 @@
-.header {
-  height: 60px;
-  display: flex;
-  align-items: center;
-  background-color: #131921;
-  position: sticky;
+/* --- Master Wrapper for Sticky/Fixed Logic --- */
+.header_outer {
+  position: fixed; /* Ensures header stays at top */
   top: 0;
-  z-index: 100;
-  padding: 5px 10px;
-}
-
-/* --- THE HOVER RECTANGLE EFFECT --- */
-.header__logo_container,
-.header__delivery,
-.header__option,
-.header__optionBasket {
-  border: 1px solid transparent; /* Prevents layout shifting */
-  padding: 4px 8px;
-  cursor: pointer;
+  left: 0;
+  width: 100%;
+  z-index: 1500; /* Stays above all content */
   display: flex;
   flex-direction: column;
-  justify-content: center;
 }
 
-.header__logo_container:hover,
-.header__delivery:hover,
-.header__option:hover,
-.header__optionBasket:hover {
-  border: 1px solid white; /* The white rectangle */
-  border-radius: 2px;
+/* --- Main Black Header --- */
+.header {
+  height: 60px;
+  display: flex; /* */
+  align-items: center; /* */
+  background-color: #131921; /* Official Amazon Navy */
+  color: white;
+  padding: 0 10px;
+  gap: 5px;
 }
 
-/* --- LOGO & DELIVERY --- */
+/* Logo Fix */
+.header__logo_container {
+  padding: 5px 8px;
+  border: 1px solid transparent;
+}
+
+.header__logo_container:hover { border: 1px solid white; }
+
 .header__logo {
   width: 95px;
   object-fit: contain;
-  margin-top: 15px;
+  margin-top: 10px;
 }
 
+/* Delivery Fix */
 .header__delivery {
-  flex-direction: row !important;
+  display: flex;
   align-items: center;
-  color: white;
-  margin-left: 5px;
+  padding: 5px 8px;
+  border: 1px solid transparent;
+  cursor: pointer;
 }
+
+.header__delivery:hover { border: 1px solid white; }
 
 .header__locationIcon {
-  margin-top: 14px;
-  font-size: 20px;
+  margin-top: 12px;
+  font-size: 18px;
 }
 
-/* --- SEARCH BAR --- */
+/* --- Search Bar Fix --- */
 .header__search {
   display: flex;
   flex: 1;
   align-items: center;
   border-radius: 4px;
-  overflow: hidden;
-  margin: 0 10px;
-  background-color: white;
-}
-
-.header__search:focus-within {
-  box-shadow: 0 0 0 2px #f08804; /* Orange glow like real Amazon */
+  overflow: hidden; /* Clips the child elements to the rounded border */
+  margin: 0 5px;
+  height: 40px;
 }
 
 .header__search_left {
   background-color: #e6e6e6;
-  width: 52px;
-  height: 40px;
+  width: 45px;
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-right: 1px solid #bbb;
   color: #555;
   font-size: 12px;
+  border-right: 1px solid #ccc;
 }
 
 .header__searchInput {
-  height: 40px;
-  /* padding: 10px; */
+  height: 100%;
   border: none;
   width: 100%;
+  padding: 0 10px;
   outline: none;
+  font-size: 14px;
 }
 
 .header__searchIconContainer {
-  height: 40px;
+  height: 100%;
   width: 45px;
-  background-color: #febd69; /* Amazon Orange */
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: #febd69; /* Amazon Orange */
+  color: #333;
+  cursor: pointer;
 }
 
-.header__searchIcon { font-size: 22px; color: #333; }
-
-/* --- NAVIGATION & FLAG FIX --- */
-.header__nav { display: flex; justify-content: space-evenly; }
-
-.header__optionLineOne { color: white; font-size: 12px; }
-.header__optionLineTwo { color: white; font-size: 14px; font-weight: 800; }
-
-.header__option_lineTwo_container { display: flex; align-items: center; }
-
-.header__language { flex-direction: row !important; align-items: center; margin-top: 10px; }
-.header__language img { 
-  width: 22px !important; /* Forces the flag to stay small */
-  margin-right: 4px; 
+/* --- Navigation & Flag Fix --- */
+.header__nav {
+  display: flex;
+  align-items: center;
 }
 
-.header__dropdown_arrow { color: lightgray; margin-top: 4px; }
+.header__option {
+  display: flex;
+  flex-direction: column;
+  padding: 5px 8px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  color: white;
+  text-decoration: none;
+}
 
-/* --- CART --- */
-.header__optionBasket { flex-direction: row !important; align-items: flex-end; }
-.header__cart_info { position: relative; display: flex; align-items: center; color: white; }
+.header__option:hover { border: 1px solid white; }
+
+.header__optionLineOne { font-size: 12px; }
+.header__optionLineTwo { font-size: 14px; font-weight: 700; }
+
+/* AMERICAN FLAG SECTION - Fixes the massive flag bug */
+.header__language {
+  display: flex;
+  align-items: center;
+  padding: 8px;
+  gap: 4px;
+}
+
+.header__language img {
+  width: 22px; /* Fixed professional scale */
+  height: auto;
+  object-fit: contain;
+}
+
+/* --- Cart Fix --- */
+.header__optionBasket {
+  display: flex;
+  align-items: flex-end;
+  padding: 5px 8px;
+  color: white;
+  text-decoration: none;
+}
+
+.header__cart_info {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
 .header__cartCount {
   position: absolute;
-  top: -6px;
-  left: 14px;
-  color: #f08804; /* Orange count */
-  font-weight: 700;
+  top: -8px;
+  left: 15px;
+  color: #f08804;
+  font-weight: 900;
   font-size: 16px;
 }
 
-/* --- LOWER HEADER (Gray Bar) --- */
+/* --- Lower Header --- */
 .lower-header {
-  background-color: #232f3e; /* Amazon's dark gray */
-  height: 40px;
   display: flex;
   align-items: center;
+  background-color: #232f3e; /* Amazon lighter navy bar */
   color: white;
-  padding-left: 10px;
-  font-family: Arial, sans-serif;
+  height: 39px;
+  padding: 0 10px;
 }
 
 .lower-header__list {
   display: flex;
-  list-style: none; /* Removes bullet points */
-  margin: 0;
+  list-style: none;
+  align-items: center;
   padding: 0;
+  margin: 0;
 }
 
-/* Style for each individual link item */
 .lower-header__item {
-  display: flex;
-  align-items: center;
-  margin: 0 2px;
   padding: 8px 10px;
+  border: 1px solid transparent;
   cursor: pointer;
   font-size: 14px;
-  font-weight: 500;
-  /* Start with a transparent border so it doesn't jump on hover */
-  border: 1px solid transparent;
+  display: flex;
+  align-items: center;
 }
 
-/* Hover effect for the white border rectangle */
-.lower-header__item:hover {
-  border: 1px solid white;
-  border-radius: 2px;
+.lower-header__item:hover { border: 1px solid white; }
+
+/* Update this in your Header.css */
+.header__language img {
+  width: 20px; /* Fixes the massive flag bug seen in your screenshot */
+  height: auto;
+  object-fit: contain;
 }
 
-/* Specific style for the "All" menu item to make the text bold */
-.lower-header__menu {
-  font-weight: 700;
-}
-
-.lower-header__menu-icon {
-  margin-right: 5px;
-  font-size: 20px;
+.header_outer {
+  z-index: 1000; /* Ensure header stays ABOVE the banner */
 }

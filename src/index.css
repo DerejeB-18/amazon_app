@@ -11,3 +11,9 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/* Ensure these are NOT set to hidden or auto */
+html, body {
+  overflow-x: visible;
+  /* If you have overflow: hidden here, sticky will break */
+}

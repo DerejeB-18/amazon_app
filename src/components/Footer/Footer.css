@@ -1,0 +1,251 @@
+/* src/components/Footer/Footer.css */
+
+:root {
+  /* Theme Colors */
+  --footer-recommend-bg: #ffffff;
+  --footer-bg-top: #37475A;
+  --footer-bg-main: #232F3E;
+  --footer-bg-deep: #131A22;
+  
+  /* Text Colors */
+  --text-dark: #000000;
+  --text-white: #ffffff;
+  --text-light-grey: #DDDDDD;
+  --text-dim: #999999;
+  
+  /* Branding Blue from your App.css */
+  --brand-link: #61dafb;
+  
+  /* Button Gradients */
+  --btn-yellow-top: #f7dfa1;
+  --btn-yellow-bottom: #f0c14b;
+  --btn-border: #a88734;
+}
+
+.footer {
+  width: 100%;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Section 0: Recommendations */
+.footer__recommend {
+  background-color: var(--footer-recommend-bg);
+  padding: 40px 15px;
+  text-align: center;
+  border-top: 1px solid #e7e7e7;
+  color: var(--text-dark);
+}
+
+.footer__recommend-text {
+  font-size: 13px;
+  margin-bottom: 5px;
+}
+
+.footer__recommend-button {
+  background: linear-gradient(to bottom, var(--btn-yellow-top), var(--btn-yellow-bottom));
+  border: 1px solid var(--btn-border);
+  border-radius: 3px;
+  width: 100%;
+  max-width: 230px;
+  padding: 6px 0;
+  font-weight: bold;
+  font-size: 12px;
+  cursor: pointer;
+  margin: 8px 0;
+}
+
+.footer__recommend-button:hover {
+  background: var(--btn-yellow-bottom);
+}
+
+.footer__recommend-new-cust {
+  font-size: 11px;
+}
+
+.footer__recommend-new-cust a {
+  color: #0066c0;
+  text-decoration: none;
+}
+
+.footer__recommend-new-cust a:hover {
+  color: #c45500;
+  text-decoration: underline;
+}
+
+/* Section 1: Back to Top */
+.footer__back-to-top {
+  background-color: var(--footer-bg-top);
+  color: var(--text-white);
+  padding: 15px 0;
+  text-align: center;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.footer__back-to-top:hover {
+  background-color: #485769;
+}
+
+/* Section 2: Main Navigation Links */
+.footer__main-links {
+  background-color: var(--footer-bg-main);
+  padding: 40px 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.footer__links-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+  width: 100%;
+  max-width: 1000px;
+}
+
+.footer__link-column {
+  text-align: left; /* Overrides .App { text-align: center } */
+}
+
+.footer__link-column h3 {
+  color: var(--text-white);
+  font-size: 16px;
+  margin-bottom: 15px;
+}
+
+.footer__link-column ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer__link-column li {
+  margin-bottom: 10px;
+}
+
+.footer__link-column a {
+  color: var(--text-light-grey);
+  text-decoration: none;
+  font-size: 13px;
+  transition: color 0.1s;
+}
+
+.footer__link-column a:hover {
+  color: var(--brand-link);
+  text-decoration: underline;
+}
+
+/* Section 3: Branding & Selectors */
+.footer__branding {
+  background-color: var(--footer-bg-main);
+  border-top: 1px solid #3a4553;
+  padding: 35px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 60px;
+}
+
+.footer__logo-text {
+  color: white;
+  font-weight: bold;
+  font-size: 1.4rem;
+}
+
+.footer__selectors {
+  display: flex;
+  gap: 10px;
+}
+
+.footer__select-btn {
+  background: transparent;
+  border: 1px solid #848688;
+  color: #ccc;
+  padding: 6px 12px;
+  font-size: 13px;
+  border-radius: 3px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Section 4: Deep Footer (SEO Grid) */
+.footer__deep {
+  background-color: var(--footer-bg-deep);
+  padding: 40px 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.footer__deep-container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 25px;
+  width: 100%;
+  max-width: 1000px;
+}
+
+.footer__service-item {
+  text-align: left;
+  cursor: pointer;
+}
+
+.footer__service-item h4 {
+  font-size: 11px;
+  color: var(--text-light-grey);
+  margin: 0;
+}
+
+.footer__service-item p {
+  font-size: 10px;
+  color: var(--text-dim);
+  margin: 0;
+}
+
+.footer__service-item:hover h4 {
+  text-decoration: underline;
+}
+
+/* Section 5: Legal Footer */
+.footer__legal {
+  background-color: var(--footer-bg-deep);
+  padding: 10px 0 30px;
+  text-align: center;
+}
+
+.footer__legal-links {
+  margin-bottom: 5px;
+}
+
+.footer__legal-links a {
+  color: var(--text-light-grey);
+  font-size: 12px;
+  text-decoration: none;
+  margin: 0 10px;
+}
+
+.footer__legal-links a:hover {
+  text-decoration: underline;
+  color: var(--brand-link);
+}
+
+.footer__copyright {
+  font-size: 12px;
+  color: var(--text-light-grey);
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .footer__links-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .footer__deep-container {
+    display: none; /* Matches Amazon mobile behavior */
+  }
+  .footer__branding {
+    flex-direction: column;
+    gap: 20px;
+  }
+}

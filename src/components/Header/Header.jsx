@@ -1,28 +1,32 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import './Header.css';
 import { BsSearch } from "react-icons/bs";
 import { SlLocationPin } from "react-icons/sl";
 import { BiCart } from "react-icons/bi";
 import { IoMdArrowDropdown } from "react-icons/io";
 import LowerHeader from './lowerHeader';
-import { Link } from 'react-router-dom'; // Import Link
+import { Link } from 'react-router-dom';
+import { StateContext } from '../../context/StateProvider';
 
 function Header() {
+  const { state: { basket } } = useContext(StateContext);
+
   return (
     <section className="header_outer">
       <section className="header">
+
         {/* Logo */}
         <div className="header__logo_container">
-          <a href="/">
+          <Link to="/">
             <img
               className="header__logo"
               src="http://pngimg.com/uploads/amazon/amazon_PNG11.png"
-              alt="amazon logo"
+              alt="Amazon Logo"
             />
-          </a>
+          </Link>
         </div>
 
-        {/* Deliver to Ethiopia */}
+        {/* Deliver */}
         <div className="header__delivery">
           <SlLocationPin className="header__locationIcon" />
           <div className="header__option">
@@ -31,36 +35,41 @@ function Header() {
           </div>
         </div>
 
-        {/* Search Bar */}
+        {/* Search */}
         <div className="header__search">
           <div className="header__search_left">
             <span>All</span>
             <IoMdArrowDropdown />
           </div>
-          <input className="header__searchInput" type="text" placeholder="Search Amazon" />
+          <input
+            className="header__searchInput"
+            type="text"
+            placeholder="Search Amazon"
+          />
           <div className="header__searchIconContainer">
-            <BsSearch className="header__searchIcon" />
+            <BsSearch className="header__searchIcon" aria-label="Search" />
           </div>
         </div>
 
-        {/* Right Side Nav */}
+        {/* Right Nav */}
         <div className="header__nav">
-          {/* Language Selection */}
+
+          {/* Language */}
           <div className="header__option header__language">
-            <img 
-              src="https://upload.wikimedia.org/wikipedia/en/thumb/a/a4/Flag_of_the_United_States.svg/1024px-Flag_of_the_United_States.svg.png" 
-              alt="US Flag" 
+            <img
+              src="https://upload.wikimedia.org/wikipedia/en/thumb/a/a4/Flag_of_the_United_States.svg/1024px-Flag_of_the_United_States.svg.png"
+              alt="US Flag"
             />
             <span className="header__optionLineTwo">EN</span>
             <IoMdArrowDropdown className="header__dropdown_arrow" />
           </div>
 
-          {/* Sign In */}
+          {/* Account */}
           <div className="header__option">
             <span className="header__optionLineOne">Hello, sign in</span>
-            <div className="header__option_lineTwo_container">
-                <span className="header__optionLineTwo">Account & Lists</span>
-                <IoMdArrowDropdown className="header__dropdown_arrow" />
+            <div className="header__optionLineTwoContainer">
+              <span className="header__optionLineTwo">Account & Lists</span>
+              <IoMdArrowDropdown className="header__dropdown_arrow" />
             </div>
           </div>
 
@@ -71,15 +80,17 @@ function Header() {
           </div>
 
           {/* Cart */}
-          <div className="header__optionBasket">
+          <Link to="/cart" className="header__optionBasket">
             <div className="header__cart_info">
-                <span className="header__cartCount">0</span>
-                <BiCart size={38} />
+              <span className="header__cartCount">{basket?.length || 0}</span>
+              <BiCart size={38} aria-label="Cart" />
             </div>
             <span className="header__optionLineTwo">Cart</span>
-          </div>
+          </Link>
+
         </div>
       </section>
+
       <LowerHeader />
     </section>
   );

@@ -25,7 +25,7 @@ const Router = () => {
           <Route path="/category/:categoryName" element={<Results />} />
           {/* <Route path="results" element={<Results />} /> */}
           {/* <Route path="product/:id" element={<ProductDetail />} /> */}
-          <Route path="/product/:productId" element={<ProductDetail />} />
+          <Route path="/products/:productId" element={<ProductDetail />} />
         </Route>
       </Routes>
   );
