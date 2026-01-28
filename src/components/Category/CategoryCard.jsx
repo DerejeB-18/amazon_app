@@ -1,23 +1,23 @@
 import React from 'react';
-// import styles from './Category.module.css'; // We will use CSS modules or standard CSS
-import './Category.css';
+import { Link } from 'react-router-dom';
+import './Category.css'; // Standard import for .css files
 
 function CategoryCard({ data }) {
-  return (
-    <div className="category__card">
-      <div className="category__card_header">
-        <h2>{data.title}</h2>
-      </div>
-      
-      <div className="category__image_container">
-        <a href="/">
-            <img src={data.imgLink} alt={data.title} />
-        </a>
-      </div>
+  // Check if data exists to avoid crashing
+  if (!data) return null;
 
-      <div className="category__link">
-        <a href="/">{data.link}</a>
-      </div>
+  const { title, name, imgLink } = data;
+
+  return (
+    /* Use a standard string if your file is Category.css */
+    <div className="category"> 
+      <Link to={`/category/${name}`}>
+        <span>
+          <h2>{title}</h2>
+        </span>
+        <img src={imgLink} alt={title} />
+        <p>shop now</p>
+      </Link>
     </div>
   );
 }

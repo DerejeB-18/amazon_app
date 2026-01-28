@@ -1,0 +1,37 @@
+/* Container for the entire results section */
+.products_container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-gap: 20px;
+    padding: 20px;
+    justify-items: center;
+}
+
+/* Styling for the section title and breadcrumbs */
+section h1 {
+    font-size: 28px;
+    font-weight: 500;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+section p {
+    font-size: 14px;
+    color: #565959;
+    margin-bottom: 10px;
+}
+
+hr {
+    border: 0;
+    border-top: 1px solid #e7e7e7;
+    margin-bottom: 20px;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+    .products_container {
+        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+        grid-gap: 15px;
+        padding: 10px;
+    }
+}

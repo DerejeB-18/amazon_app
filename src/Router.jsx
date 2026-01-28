@@ -22,8 +22,10 @@ const Router = () => {
           <Route path="payment" element={<Payment />} />
           <Route path="orders" element={<Orders />} />
           <Route path="cart" element={<Cart />} />
-          <Route path="results" element={<Results />} />
-          <Route path="product/:id" element={<ProductDetail />} />
+          <Route path="/category/:categoryName" element={<Results />} />
+          {/* <Route path="results" element={<Results />} /> */}
+          {/* <Route path="product/:id" element={<ProductDetail />} /> */}
+          <Route path="/product/:productId" element={<ProductDetail />} />
         </Route>
       </Routes>
   );

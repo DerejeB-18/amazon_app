@@ -1,0 +1,59 @@
+/* Container for the Detail View (Horizontal) */
+.product_flexed {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 50px;
+  padding: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Ensure image stays on the left and text on the right */
+.product_flexed .image_wrapper {
+  flex: 0 0 450px; /* Fixed width for the image side */
+}
+
+.product_flexed img {
+  width: 100%;
+  max-height: 500px;
+  object-fit: contain;
+}
+
+.product_flexed .content_wrapper {
+  flex: 1; /* Text takes the rest of the space */
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Styling the description text */
+.description_box {
+  margin: 15px 0;
+  color: #565959; /* Amazon's greyish font color */
+  font-size: 15px;
+  line-height: 1.4;
+  max-width: 750px;
+}
+
+/* Make the Add to Cart button full width for mobile, 
+   but smaller for desktop detail view */
+.product_flexed .add_btn {
+  width: fit-content;
+  padding: 10px 40px;
+  margin-top: 20px;
+}
+
+/* Responsive: stack it back for phones */
+@media (max-width: 768px) {
+  .product_flexed {
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+  .product_flexed .image_wrapper {
+    flex: 0 0 auto;
+    width: 100%;
+  }
+}

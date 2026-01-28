@@ -1,28 +1,23 @@
-// src/Components/Category/categoryFullInfos.js
-
 export const categoryInfos = [
   {
-    title: "Get your game on",
+    title: "Electronics",
     name: "electronics",
-    imgLink: "https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Fuji/2021/June/Fuji_Quad_Headset_1x._SY116_CB667159060_.jpg",
-    link: "See more",
+    imgLink: "https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Fuji/2020/May/Dashboard/Fuji_Dash_Electronics_1x._SY304_CB432774322_.jpg"
   },
   {
-    title: "Shop for your home essentials",
-    name: "discover",
-    imgLink: "https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Fuji/2019/July/amazonbasics_520x520._SY304_CB442725065_.jpg",
-    link: "Discover more in Home",
+    title: "Jewelery",
+    name: "jewelery",
+    imgLink: "https://m.media-amazon.com/images/I/71r7eWuCsaL._AC_UL320_.jpg"
   },
   {
-    title: "Deals in PCs",
-    name: "computers",
-    imgLink: "https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Fuji/2020/May/Dashboard/Fuji_Dash_PC_1x._SY304_CB431800965_.jpg",
-    link: "Shop now",
+    title: "Men's Clothing",
+    name: "men's clothing",
+    imgLink: "https://m.media-amazon.com/images/I/618bcm65ksL._AC_UL320_.jpg"
   },
   {
-    title: "Electronic",
-    name: "electronics",
-    imgLink: "https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Fuji/2020/May/Dashboard/Fuji_Dash_Electronics_1x._SY304_CB432774322_.jpg",
-    link: "See more",
-  },
+  title: "Discover Fashion Trends",
+  name: "women's clothing", // ⚠️ DO NOT change this
+  imgLink: "https://m.media-amazon.com/images/G/01/AMAZON_FASHION/2021/WOMENS_APPAREL._CB657858338_.jpg"
+
+  }
 ];
